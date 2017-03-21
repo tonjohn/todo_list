@@ -1,0 +1,33 @@
+<div id="login">
+    <form name="loginForm" ng-submit="login()">
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" type='email' name='email' placeholder="contact@codingdojo.com" ng-model="user.email">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" type='password' name='password' ng-model="user.password">
+        </div>
+        <div class="submit">
+            <input name='action' type="submit" value="Login">
+        </div>
+    </form>
+    <form name="regForm" ng-submit="register()">
+        <h3>(Registration Only)</h3>
+        <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input id="confirm_password" type='password' name='confirm_password' ng-model="user.confirm_password">
+        </div>
+        <div>
+            <label for="first_name">First Name:</label>
+            <input id="first_name" type='text' name='first_name' placeholder="Bob" ng-model="user.first_name">
+        </div>
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input id="last_name" type='text' name='last_name' placeholder="Johnson" ng-model="user.last_name">
+        </div>
+        <div class="submit">
+            <input name='action' type="submit" value="Register">
+        </div>
+    </form>
+</div>
