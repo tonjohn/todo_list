@@ -5,7 +5,7 @@ app.config( function ( $routeProvider ) {
 			templateUrl: 'partials/login.tpl.html',
 			controller: 'loginController'
 		})
-		.when('/wall', {
+		.when('/', {
 			templateUrl: 'partials/wall.tpl.html',
 			controller: 'loginController'
 		})

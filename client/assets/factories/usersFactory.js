@@ -31,7 +31,7 @@ app.factory('usersFactory', ['$http', function ( $http ) {
 				callback(res.data);
 			}
 		})
-	}
+	};
 	
 	return factory;
 	

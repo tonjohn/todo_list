@@ -8,7 +8,7 @@ module.exports = {
 			res.json(users);
 		});
 	},
-	create: function(req,res){
+	register: function(req,res){
 		console.log("Received create request:", req.body);
 		var user = new User(req.body);
 		user.save( function ( err, newuser ) {
@@ -20,7 +20,7 @@ module.exports = {
 			}
 			else
 			{
-				res.json({current_user: {_id: newuser._id, firstName: newuser.firstName}});
+				res.json({current_user: {_id: newuser._id, first_name: newuser.first_name, last_name: newuser.last_name, email: newuser.email}});
 			}
 		});
 	},
@@ -35,7 +35,7 @@ module.exports = {
 			}
 			else if( data && data.checkPassword(req.body.password))
 			{
-				res.json({current_user:{_id: data._id, firstName: data.firstName, lastName: data.lastName, email: data.email}});
+				res.json({current_user:{_id: data._id, first_name: data.first_name, last_name: data.last_name, email: data.email}});
 			}
 			else{
 				res.json({errors: {loginForm: { message: "user name and/or password is invalid"}}})
@@ -51,7 +51,7 @@ module.exports = {
 			user.dob = req.body.dob;
 			user.save( function ( err ) {
 				console.log("Update Error", err);
-				res.json({error: err, status: "OK"});
+				res.json(err);
 			});
 			
 		})

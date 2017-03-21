@@ -1,0 +1,9 @@
+
+<section ng-controller="wallController">
+    <h3 ng-show="current_user.first_name">Hello, {{current_user.first_name}}</h3>
+    <ul>
+        <li>Take out the trash</li>
+        <li>Pay bills</li>
+    </ul>
+    <button ng-click="$parent.logout()">Logout</button>
+</section>

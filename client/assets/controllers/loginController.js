@@ -3,6 +3,7 @@ app.controller('loginController', ['$scope', '$location','$cookies', 'usersFacto
 	$scope.index = function (  ) {
 		// check if the user is already logged in and redirect
 		console.log("loginController index");
+		console.log($scope.current_user);
 		if( !$scope.current_user )
 		{
 			var user = $cookies.getObject('curUser');
@@ -13,9 +14,11 @@ app.controller('loginController', ['$scope', '$location','$cookies', 'usersFacto
 			}
 			else
 			{
-				$location.path('/login')
+				return $location.path('/login')
 			}
 		}
+		
+		return $location.path('/');
 	};
 	$scope.index();
 	
@@ -33,7 +36,7 @@ app.controller('loginController', ['$scope', '$location','$cookies', 'usersFacto
 				
 				$cookies.putObject('curUser', $scope.current_user);
 				
-				$location.path('/wall');
+				$location.path('/');
 			}
 			else
 			{
@@ -54,7 +57,10 @@ app.controller('loginController', ['$scope', '$location','$cookies', 'usersFacto
 				$scope.loginForm.$setPristine(true);
 				$scope.current_user = data.current_user;
 				$scope.current_user.auth = "password";
-				$location.path('/wall');
+				console.log("Registration Successful! User:", $scope.current_user );
+				$cookies.putObject('curUser', $scope.current_user);
+				
+				$location.path('/');
 			}
 			else
 			{

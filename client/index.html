@@ -1,6 +1,6 @@
 <html ng-app="myApp">
 <head>
-    <title>Login and Registration</title>
+    <title>To Do List</title>
     <link rel="icon"
           type="image/png"
           href="http://tonjohn.com/favicon.png">
@@ -28,13 +28,17 @@
     <script src="assets/app.js"></script>
     <script src="assets/factories/usersFactory.js"></script>
     <script src="assets/controllers/loginController.js"></script>
+    <script src="assets/controllers/wallController.js"></script>
 
 </head>
 <body>
 <main>
-    <nav>
-        <a href="#!/">My Friends</a> <a href="#!/new">Add Friend</a>
-    </nav>
+    <header>
+        <h1>To Do List</h1>
+        <nav>
+            <button ng-click="logout()" ng-show="current_user.first_name">Logout</button>
+        </nav>
+    </header>
     <hr>
     <section ng-view></section>
 </main>

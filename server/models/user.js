@@ -3,9 +3,8 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema({
-	firstName:  { type: String, required: true, minlength: 2},
-	lastName:  { type: String, required: true, minlength: 2},
-	dob: { type: Date, required: true },
+	first_name:  { type: String, required: true, minlength: 2},
+	last_name:  { type: String, required: true, minlength: 2},
 	email: {unique: true, required: true, minlength: 5, type: String,
 		trim: true,
 		lowercase: true,},
