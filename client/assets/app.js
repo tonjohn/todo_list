@@ -11,7 +11,7 @@ app.config( function ( $routeProvider ) {
 		})
 		.when('/list', {
 			templateUrl: 'partials/todoList.html',
-			controller: 'todoListController'
+			controller: 'loginController'
 		})
 		.otherwise({
 			redirectTo: '/login'

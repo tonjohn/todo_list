@@ -18,7 +18,7 @@ app.controller('loginController', ['$scope', '$location','$cookies', 'usersFacto
 			}
 		}
 		
-		return $location.path('/');
+		return $location.path('/list');
 	};
 	$scope.index();
 	

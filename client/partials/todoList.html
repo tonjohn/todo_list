@@ -1,9 +1,8 @@
-<body>
-  <div class="container">
+<a ng-click="logout()">Logout</a>
+  <div class="container" ng-controller="todoListController">
     <div class="well col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <legend class="">Create Todo List!</legend>
           <form ng-submit="create()" class="form-horizontal">
             <div class="form-group">
               <label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Add Item</label>
@@ -25,7 +24,7 @@
           </form><!-- Form ends here-->
         </div><!-- col-md-6 ends here for Registration-->
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <legend class="">Todo List!</legend>
+          <legend class="">{{$parent.current_user.first_name}}'s Todo List!</legend>
           <div ng-repeat="list in lists" class="checkbox">
             <label ng-hide="list.completed"><input ng-checked="list.completed"  ng-click="checked(list._id)" type="checkbox" value="">{{ list.toDoItem }} {{ list.dueDate | date:'mediumDate' }} <p ng-show="list.completed">Checked On: {{ list.completed | date:'mediumDate' }}</p> </label>
             <label ng-show="list.completed"><input ng-checked="list.completed"  ng-click="checked(list._id)" type="checkbox" value=""><span>{{ list.toDoItem }} {{ list.dueDate | date:'mediumDate' }}</span> Completed On: {{ list.completed | date:'mediumDate' }}</label>
@@ -34,4 +33,4 @@
       </div><!-- Row ends here-->
     </div><!-- well ends here-->
   </div> <!-- container 1 ends here -->
-</body>
+

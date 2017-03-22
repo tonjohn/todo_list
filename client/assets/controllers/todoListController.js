@@ -2,7 +2,8 @@ app.controller('todoListController', ['$scope', '$location', 'todoListFactory', 
 	$scope.lists = [];
 	
 	var index = function () {
-		todoListFactory.index(function(dataFromFactory) {
+		// console.log( $scope.$parent.current_user._id );
+		todoListFactory.index($scope.$parent.current_user._id, function(dataFromFactory) {
 			$scope.lists = dataFromFactory;
 		});
 		
@@ -11,6 +12,7 @@ app.controller('todoListController', ['$scope', '$location', 'todoListFactory', 
 	
 	$scope.create = function() {
 			$scope.lists.push($scope.newTodoList);
+			$scope.newTodoList.user = $scope.$parent.current_user._id;
 			todoListFactory.create($scope.newTodoList, function(data) {
 				console.log(data);
 				$scope.newTodoList = {};

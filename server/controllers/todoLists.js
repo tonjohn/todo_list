@@ -15,7 +15,8 @@ module.exports = {
     })
   },
   getIndex: function( req, res ) {
-    todoList.find({}, function(err, data ) {
+  	console.log("Getting items for User ID", req.query.id);
+    todoList.find({user: req.query.id}, function(err, data ) {
       if ( err ){
         res.json(err)
       } else { res.json(data) }
