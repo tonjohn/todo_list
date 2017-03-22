@@ -1,0 +1,37 @@
+<body>
+  <div class="container">
+    <div class="well col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <legend class="">Create Todo List!</legend>
+          <form ng-submit="create()" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Add Item</label>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input ng-model="newTodoList.toDoItem" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Due Date (Optional)</label>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input ng-model="newTodoList.dueDate" type="date" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="from-group col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4 col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <button class="btn btn-primary" type="submit">Add</button>
+              </div>
+            </div>
+          </form><!-- Form ends here-->
+        </div><!-- col-md-6 ends here for Registration-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <legend class="">Todo List!</legend>
+          <div ng-repeat="list in lists" class="checkbox">
+            <label ng-hide="list.completed"><input ng-checked="list.completed"  ng-click="checked(list._id)" type="checkbox" value="">{{ list.toDoItem }} {{ list.dueDate | date:'mediumDate' }} <p ng-show="list.completed">Checked On: {{ list.completed | date:'mediumDate' }}</p> </label>
+            <label ng-show="list.completed"><input ng-checked="list.completed"  ng-click="checked(list._id)" type="checkbox" value=""><span>{{ list.toDoItem }} {{ list.dueDate | date:'mediumDate' }}</span> Completed On: {{ list.completed | date:'mediumDate' }}</label>
+          </div>
+        </div>
+      </div><!-- Row ends here-->
+    </div><!-- well ends here-->
+  </div> <!-- container 1 ends here -->
+</body>

@@ -9,6 +9,10 @@ app.config( function ( $routeProvider ) {
 			templateUrl: 'partials/wall.tpl.html',
 			controller: 'loginController'
 		})
+		.when('/list', {
+			templateUrl: 'partials/todoList.html',
+			controller: 'todoListController'
+		})
 		.otherwise({
 			redirectTo: '/login'
 		});
